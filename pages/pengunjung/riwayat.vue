@@ -2,11 +2,11 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <h2 class="text-center my-4">RIWAYAT KUNJUNGAN</h2>
+        <h2 class="my-4 ms-5">RIWAYAT KUNJUNGAN</h2>
         <div class="my-3">
           <input type="search" class="form-control fprm-control-lg rounded-5" placeholder="filter" />
         </div>
-        <div class="my-3 text-muted">menampilkan 1 dari 2</div>
+        <div class="my-3 text-muted">Menampilkan 1 dari 2</div>
         <table class="table">
           <thead>
             <tr>
@@ -27,12 +27,29 @@
             </tr>
           </tbody>
         </table>
+        <div class="text-end">
+          <nuxt-link to="/caribuku">
+            <button type="submit" class="btn btn-dark btn-lg rounded-5 px-5">Cari Buku</button>
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap");
+
+h2,
+.text-muted,
+td,
+.btn {
+  font-family: "Irish Grover", system-ui;
+}
+
+.container-fluid {
+  background-color: #cfe8ef;
+}
 .text center {
   font-family: Inria serif, serif;
   font-size: 35px;
@@ -42,11 +59,13 @@
 
 .btn {
   background-color: #000000;
-  margin-left: 75%;
+}
+
+td {
+  border: 1px solid;
 }
 
 .form-control {
-  background-color: #cfe8ef;
-}
+  background-color: #d9d9d9;
 }
 </style>

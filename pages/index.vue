@@ -5,7 +5,7 @@
         <div class="col-lg-12">
           <h2 class="text-center my-4 fw-bold font-inter">ISI BUKU KUNJUNGAN</h2>
         </div>
-        <form class="card rounded p-5">
+        <form class="card rounded p-5" style="width: 50rem">
           <div class="mb-3">
             <input type="text" class="form-control form control-lg rounded-5" placeholder="Nama" />
           </div>
@@ -57,9 +57,11 @@
               <option value="kembalikan buku">Kembalikan buku</option>
             </select>
           </div>
-          <nuxt-link to="/pengunjung/">
-            <button type="submit" class="btn btn-dark btn-lg rounded-5 px-5">Kirim</button>
-          </nuxt-link>
+          <div class="text-end">
+            <nuxt-link to="pengunjung/riwayat">
+              <button type="submit" class="btn btn-dark btn-lg rounded-5">Kirim</button>
+            </nuxt-link>
+          </div>
         </form>
       </div>
     </div>
@@ -67,6 +69,15 @@
 </template>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap");
+
+h2,
+input,
+select,
+.btn {
+  font-family: "Irish Grover", system-ui;
+}
+
 .container-fluid {
   background-color: #cfe8ef;
 }
@@ -85,6 +96,6 @@
   font-size: 35px;
 }
 .btn {
-  margin-left: 90%;
+  width: 7rem;
 }
 </style>

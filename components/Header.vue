@@ -6,10 +6,17 @@
       </div>
       <div class="col-lg-11 col-10 p-0">
         <h3>PERPUS DIGITAL</h3>
-        <address>SMKN 4 TasiKmalaya jl.depok, sukamenak, purbaratu</address>
+        <Address>SMKN 4 TasiKmalaya jl.depok, sukamenak, purbaratu</Address>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap");
+
+h3,
+Address {
+  font-family: "Irish Grover", system-ui;
+}
+</style>

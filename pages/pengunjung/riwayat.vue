@@ -11,8 +11,8 @@
           <thead>
             <tr>
               <td>#</td>
-              <td>NAMA</td>
-              <td>KEANGGOTAAN</td>
+              <td>Nama</td>
+              <td>Keanggotaan</td>
               <td>waktu</td>
               <td>keperluan</td>
             </tr>
@@ -28,8 +28,8 @@
           </tbody>
         </table>
         <div class="text-end">
-          <nuxt-link to="/caribuku">
-            <button type="submit" class="btn btn-dark btn-lg rounded-5 px-5">Cari Buku</button>
+          <nuxt-link to="/buku">
+            <button type="submit" class="btn btn-dark btn-lg rounded-5 px-5">Cari buku</button>
           </nuxt-link>
         </div>
       </div>
@@ -47,9 +47,6 @@ td,
   font-family: "Irish Grover", system-ui;
 }
 
-.container-fluid {
-  background-color: #cfe8ef;
-}
 .text center {
   font-family: Inria serif, serif;
   font-size: 35px;

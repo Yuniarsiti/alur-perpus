@@ -18,12 +18,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1.</td>
-              <td>yuniar</td>
-              <td>siswa</td>
-              <td>24 febuari 2024,23.31.00</td>
-              <td>Baca</td>
+            <tr v-for="(vistor,i) in vistors" :key="i">
+              <td>{{ i + 1 }}</td>
+              <td>{{ visitor.tanggal }}</td>
+              <td>{{ visitor.waktu }}</td>
+              <td>{{ visitor.nama }}</td>
+              <td>{{ visitor.keanggotaan.nama }}</td>
+              <td>{{ visitor.tanggal }}, {{ visitor.waktu }}</td>
+              <td>{{ visitor.keperluan.nama }}</td>
             </tr>
           </tbody>
         </table>
@@ -36,6 +38,21 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const supabase =useSupabaseClient()
+
+const visitors = ref([])
+
+const pengunjung =async () => {
+  const {data, error,} = await supabase.from('pengunjung').select('*,keanggotaan(*),keperluan(*)')
+  if(data) visitors.value= data
+}
+
+onMounted(() => {
+  getPengunjung()
+})
+</script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap");

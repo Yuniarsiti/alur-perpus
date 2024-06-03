@@ -8,7 +8,7 @@ const getBooks = async() => {
 }
 
 onMounted(() => {
-  getBooks()
+  getBook()
 })
 </script>
 

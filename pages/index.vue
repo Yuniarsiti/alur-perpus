@@ -1,4 +1,3 @@
-f
 <template>
   <div class="container-fluid">
     <div class="content">
@@ -11,12 +10,9 @@ f
             <input v-model="form.nama" type="text" class="form-control form control-lg rounded-5" placeholder="Nama" />
           </div>
           <div class="mb-3">
-            <select class="form-control form-control-lg form-select rounded-5">
+            <select v-model="form.keanggotaan" class="form-control form-control-lg form-select rounded-5">
               <option value="">Keanggotaan</option>
-              <option value="siswa">Siswa</option>
-              <option value="guru">Guru</option>
-              <option value="staf">Staf</option>
-              <option value="umum">Umum</option>
+              <option v-for="(member, i) in members" :key="i" :value="member.id">{{ member.nama }}</option>
             </select>
           </div>
           <div class="mb-3">
@@ -52,16 +48,12 @@ f
           </div>
           <div class="mb-3">
             <select v-model="form.keperluan" class="form-control form control-lg form-select rounded-5">
-              <option value="">Keperluan</option>
-              <option value="baca buku">Baca buku</option>
-              <option value="pinjam buku">Pinjam buku</option>
-              <option value="kembalikan buku">Kembalikan buku</option>
+              <option value="" disabled>Keperluan</option>
+              <option v-for="(item, i) in objectives" :key="i" :value="item.id">{{ item.nama }}</option>
             </select>
           </div>
-          <div class="text-end">
-            <nuxt-link to="pengunjung/riwayat">
+          <div class="text-end">         
               <button type="submit" class="btn btn-dark btn-lg rounded-5">Kirim</button>
-            </nuxt-link>
           </div>
         </form>
       </div>
@@ -81,21 +73,22 @@ const form = ref({
   tingkat: "",
   jurusan: "",
   kelas: "",
+  keperluan: ""
 });
 
 const kirimData = async () => {
-  const { eror } = await supabase.form("pengunjung").insert([form.value]);
-  if (!eror) navigateTo("pengunjung");
+  const { eror } = await supabase.from("pengunjung").insert([form.value]);
+  if (!eror) navigateTo("../pengunjung/riwayat");
 };
 
 const getKeanggotaan = async () => {
-  const { data, eror } = await supabase.form("keanggotaan").select("*");
+  const { data, eror } = await supabase.from("keanggotaan").select("*");
   if (data) members.value = data;
 };
 
 const getKeperluan = async () => {
-  const { data, eror } = await supabase.form("keperluan").select("*");
-  if (data) members.value = data;
+  const { data, eror } = await supabase.from("keperluan").select("*");
+  if (data) objectives.value = data;
 };
 
 onMounted(() => {

@@ -6,7 +6,7 @@
       </div>
       <div class="col-lg-11 col-10 p-0">
         <h3>PERPUS DIGITAL</h3>
-        <Address>SMKN 4 TasiKmalaya jl.depok, sukamenak, purbaratu</Address>
+        <address>SMKN 4 TasiKmalaya jl.depok, sukamenak, purbaratu</address>
       </div>
     </div>
   </div>

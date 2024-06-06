@@ -4,7 +4,8 @@
       <div class="col-lg-12">
         <h2 class="my-4 ms-5">RIWAYAT KUNJUNGAN</h2>
         
-        <div class="my-3 text-muted">Menampilkan 1 dari 2</div>
+        <!-- <div class="my-3 text-muted">Menampilkan 1 dari 2</div> -->
+        menampilkan {{ visitors.length  }} dari {{ visitors.length }} kunjungan
         <table class="table">
           <thead>
             <tr>

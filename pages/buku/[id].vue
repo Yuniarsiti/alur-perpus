@@ -11,7 +11,7 @@
                     <h2 class="text-start my-4">{{ buku.judul }}</h2>
                     <div class="row">
                         <div class="col-md-3">
-                            <img src="buku.cover" class="cover" alt="cover buku" />
+                            <img :src="buku.cover" class="cover" alt="cover buku" />
                         </div>
                         <div class="col-md-6">
                             <div class="badge bg-primary p-2">{{ buku.kategori }}</div>
@@ -50,8 +50,8 @@ img {
     const route = useRoute()
     const buku = ref([])
 const getBookById = async () => {
-    const { data, error} = await supabase.from('buku').select('*,kategori(*)')
-    .ed('id', route.parans.id)
+    const { data, error} = await supabase.from('buku').select(`*,kategori(*)`)
+    .ed('id', route.params.id)
     if(data) buku.value=data[0]
 }    
 onMounted(() => {

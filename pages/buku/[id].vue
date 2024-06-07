@@ -47,12 +47,12 @@ img {
 </style>
 
 <script setup>
-    const route = useRoute()
-    const buku = ref([])
+const route = useRoute()
+const buku = ref([])
 const getBookById = async () => {
-    const { data, error} = await supabase.from('buku').select(`*,kategori(*)`)
+    const { data, error} = await supabase.from('buku').select(`*, kategori(*)`)
     .ed('id', route.params.id)
-    if(data) buku.value=data[0]
+    if(data) buku.value = data [0]
 }    
 onMounted(() => {
     getBookById()

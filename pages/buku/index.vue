@@ -8,7 +8,6 @@
       </div>
     </div>
     <div class="row buku">
-      {{ books }}
       <div v-for="(book, i) in books" :key="i" class="col mb-4">
         <div class="card rounded-4">
           <img :src="book.cover" class="card-img-top rounded mx-auto" alt="..." />
@@ -19,8 +18,8 @@
           </NuxtLink>
         </div>
       </div>
-      <nuxt-link to="/buku/detail">
-        <button type="submit" class="btn btn-dark btn-lg rounded-5 float-end">lihat detail</button>
+      <nuxt-link to="/">
+        <button type="submit" class="btn btn-dark btn-lg rounded-5 float-end">kembali</button>
       </nuxt-link>
     </div>
   </div>
@@ -33,7 +32,7 @@ const books = ref([]);
 
 const getBooks = async () => {
   const { data, error } = await supabase.from('buku')
-  .select(`*,katgori_buku(*)`)
+  .select(`*, kategori_buku(*)`)
   .ilike("judul", `%${keyword.value}%`);
   if (error) throw error
   if (data) books.value = data

@@ -2,7 +2,7 @@
   <div class="row">
     <div clas="col-lg-12">
       <div class="my-3">
-        <input type="search" class="form-control rounded-5" placeholder="Sabtu Bersama Bapak" />
+        <input type="search" class="form-control rounded-5" placeholder="cari buku" />
       </div>
     </div>
     <div class="row p-5 justify-content-center">

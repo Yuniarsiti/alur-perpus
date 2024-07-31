@@ -11,15 +11,15 @@
           </div>
           <div class="mb-3">
             <select v-model="form.keanggotaan" class="form-control form-control-lg form-select rounded-5">
-              <option value="">Keanggotaan</option>
+              <option value="" disabled>Keanggotaan</option>
               <option v-for="(member, i) in members" :key="i" :value="member.id">{{ member.nama }}</option>
             </select>
           </div>
           <div class="mb-3">
-            <div class="row">
+            <div class="row" v-if="form.keanggotaan == '1'">
               <div class="col-md-4">
                 <select v-model="form.tingkat" class="form-control form control-lg form-select rounded-5 mb-2">
-                  <option value="">Tingkat</option>
+                  <option value="" disabled>Tingkat</option>
                   <option value="X">X</option>
                   <option value="XI">XI</option>
                   <option value="XII">XII</option>
@@ -27,7 +27,7 @@
               </div>
               <div class="col-md-4">
                 <select v-model="form.jurusan" class="form-control form-contol-lg form-select rounded-5 mb-2">
-                  <option value="">Jurusan</option>
+                  <option value="" disabled>Jurusan</option>
                   <option value="TJKT">TJKT</option>
                   <option value="PPLG">PPLG</option>
                   <option value="TOI">TOI</option>
@@ -37,7 +37,7 @@
               </div>
               <div class="col-md-4">
                 <select v-model="form.kelas" class="form-control form-control-lg form-select rounded-5 mb-2">
-                  <option value="">Kelas</option>
+                  <option value="" disabled>Kelas</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>

@@ -15,6 +15,7 @@
               <td>Keanggotaan</td>
               <td>waktu</td>
               <td>keperluan</td>
+              <td>Kelas</td>
             </tr>
           </thead>
           <tbody>
@@ -25,6 +26,7 @@
               <td>{{ visitor.keanggotaan.nama }}</td>
               <td>{{ visitor.tanggal }}, {{ visitor.waktu }}</td>
               <td>{{ visitor.keperluan.nama }}</td>
+              <td>{{ visitor.tingkat }} {{ visitor.jurusan }} {{ visitor.kelas }} </td>
             </tr>
           </tbody>
         </table>

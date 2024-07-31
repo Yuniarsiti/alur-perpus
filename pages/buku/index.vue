@@ -2,13 +2,15 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <div class="my-3">
-          <input type="search" class="form-control rounded-5" placeholder="cari buku" />
-        </div>
+        <form @submit.prevent="getBooks">
+          <div class="my-3">
+            <input v-model="keyword" type="search" class="form-control rounded-5" placeholder="cari buku" />
+          </div>
+        </form>
       </div>
     </div>
     <div class="row buku">
-      <div v-for="(book, i) in books" :key="i" class="col mb-4">
+      <div v-for="(book, i) in bookFiltered" :key="i" class="col mb-4">
         <div class="card rounded-4">
           <img :src="book.cover" class="card-img-top rounded mx-auto" alt="..." />
           <NuxtLink :to="`/buku/${book.id}`" style="text-decoration: none">
@@ -38,7 +40,13 @@ const getBooks = async () => {
   if (data) books.value = data
 };
 
-
+const bookFiltered = computed (() => {
+    return books.value.filter((b) => {
+        return (
+            b.judul?.toLowerCase().includes(keyword.value?.toLowerCase())
+        )
+    })
+}) 
 onMounted(() => {
   getBooks();
 });
